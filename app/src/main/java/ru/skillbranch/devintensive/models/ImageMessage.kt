@@ -4,13 +4,13 @@ import java.util.*
 
 class ImageMessage(
     id: String,
-    from: User,
+    from: User?,
     chat: Chat,
     isIncoming: Boolean = false,
     date: Date = Date(),
-    var image: String
+    var image: String?
 ) : BaseMessage(id, from, chat, isIncoming, date) {
     override fun formatMessage(): String {
-        return "$id ${from!!.firstName} ${from.lastName} ${if(isIncoming) "получил" else "отправил"} изображение \"$image\""
+        return "$id ${from?.firstName} ${from?.lastName} ${if(isIncoming) "получил" else "отправил"} изображение \"$image\""
     }
 }
